@@ -42,7 +42,7 @@
 	Rmax Rmax::operator*(const Rmax& b)
 	{
 		Rmax temp;
-		temp.value = value+b.value;
+		temp.value = value + b.value;
 		return temp;
 	}
 	
@@ -50,8 +50,8 @@
 	{
 		
 		if (*this==b) return *this;
-		this->value = b.value;
-		return *this;
+		this -> value = b.value;
+		return * this;
 		
 	}
 
