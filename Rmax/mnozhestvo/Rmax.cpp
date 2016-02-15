@@ -16,7 +16,11 @@
 	std::string Rmax::toString()
 	{
 		std::stringstream ostr;
-		if (value == -std::numeric_limits<double>::infinity())
+		if (value == std::numeric_limits<double>::infinity())
+		{
+			ostr << "oo";
+		}
+		else if (value == -std::numeric_limits<double>::infinity())
 		{
 			ostr << "-oo";
 		}
@@ -39,6 +43,10 @@
 		{
 			s << "-oo";
 		}
+		else if (n.value == std::numeric_limits<double>::infinity())
+		{
+			s << "oo";
+		}
 		else
 		{
 			s << n.value;
@@ -59,6 +67,20 @@
 		temp.value = value + b.value;
 		return temp;
 	}
+
+	Rmax Rmax::operator/(const Rmax& b)
+	{
+		Rmax temp;
+		temp.value = value - b.value;
+		return temp;
+	}
+
+	Rmax Rmax::operator^(const Rmax& b)
+	{
+		Rmax temp;
+		temp.value = value * b.value;
+		return temp;
+	}
 	
 	Rmax& Rmax::operator=(const Rmax &b)
 	{
@@ -67,6 +89,15 @@
 		this -> value = b.value;
 		return * this;
 		
+	}
+
+	Rmax& Rmax::operator=(const double &b)
+	{
+
+		if (*this == b) return *this;
+		this->value = b;
+		return *this;
+
 	}
 
 	bool operator ==(const Rmax & a, const Rmax & b)

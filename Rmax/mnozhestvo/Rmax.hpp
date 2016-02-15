@@ -3,7 +3,6 @@
 	#include <limits>
 	#include <iostream>
 	#include <string>
-	#include <stdio.h>
 	#include <sstream>
 
 	class Rmax
@@ -17,8 +16,11 @@
 		Rmax(Rmax &param);
 
 		Rmax operator+(const Rmax& b);
+		Rmax operator/(const Rmax& b);
 		Rmax operator*(const Rmax& b);
+		Rmax operator^(const Rmax& b);
 		Rmax& operator=(const Rmax& b);
+		Rmax& operator=(const double& b);
 		std::string toString();
 		friend std::istream& operator>>(std::istream& s, Rmax &n);
 		friend std::ostream& operator<<(std::ostream& s, const Rmax &);
