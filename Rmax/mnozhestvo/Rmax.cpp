@@ -16,7 +16,14 @@
 	std::string Rmax::toString()
 	{
 		std::stringstream ostr;
-		ostr << value;
+		if (value == -std::numeric_limits<double>::infinity())
+		{
+			ostr << "-oo";
+		}
+		else
+		{
+			ostr << value;
+		}
 		return ostr.str();
 	}
 
@@ -28,7 +35,14 @@
 
 	std::ostream & operator <<(std::ostream & s, const Rmax &n)
 	{
-		s << n.value;
+		if (n.value == -std::numeric_limits<double>::infinity())
+		{
+			s << "-oo";
+		}
+		else
+		{
+			s << n.value;
+		}
 		return s;
 	}
 
