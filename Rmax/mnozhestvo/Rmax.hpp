@@ -3,7 +3,6 @@
 	#include <limits>
 	#include <iostream>
 	#include <string>
-	#include <stdio.h>
 	#include <sstream>
 
 	class Rmax
@@ -19,12 +18,16 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of c169983... This reverts commit d0e40bc907fe2a238bebe1c3525612ee3d75942c.
 		Rmax operator+(const Rmax& other);
 		Rmax operator/(const Rmax& other);
 		Rmax operator*(const Rmax& other);
 		Rmax operator^(const Rmax& other);
 		Rmax& operator=(const Rmax& other);
 		Rmax& operator=(const double& other);
+<<<<<<< HEAD
 =======
 		Rmax operator+(const Rmax& b);
 		Rmax operator*(const Rmax& b);
@@ -43,6 +46,8 @@
 >>>>>>> parent of 16d5ebb... Little change
 =======
 >>>>>>> parent of 16d5ebb... Little change
+=======
+>>>>>>> parent of c169983... This reverts commit d0e40bc907fe2a238bebe1c3525612ee3d75942c.
 		std::string toString();
 		friend std::istream& operator>>(std::istream& s, Rmax &n);
 		friend std::ostream& operator<<(std::ostream& s, const Rmax &);

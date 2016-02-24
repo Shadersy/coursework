@@ -20,6 +20,7 @@
 <<<<<<< HEAD
 		if (value == -std::numeric_limits<double>::infinity())
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 		{
 >>>>>>> parent of d0e40bc... Ищо классы
@@ -36,6 +37,8 @@
 >>>>>>> parent of 16d5ebb... Little change
 =======
 >>>>>>> parent of 16d5ebb... Little change
+=======
+>>>>>>> parent of c169983... This reverts commit d0e40bc907fe2a238bebe1c3525612ee3d75942c.
 			ostr << "-oo";
 		}
 		else
@@ -53,6 +56,7 @@
 
 	std::ostream & operator <<(std::ostream & s, const Rmax &n)
 	{
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -90,6 +94,9 @@
 >>>>>>> parent of 16d5ebb... Little change
 =======
 >>>>>>> parent of 16d5ebb... Little change
+=======
+		s << n.toString();
+>>>>>>> parent of c169983... This reverts commit d0e40bc907fe2a238bebe1c3525612ee3d75942c.
 		return s;
 	}
 
@@ -106,7 +113,6 @@
 		temp.value = value + b.value;
 		return temp;
 	}
-<<<<<<< HEAD
 
 	Rmax Rmax::operator/(const Rmax& b)
 	{
@@ -121,8 +127,6 @@
 		temp.value = value * b.value;
 		return temp;
 	}
-=======
->>>>>>> parent of d0e40bc... Ищо классы
 	
 	Rmax& Rmax::operator=(const Rmax &b)
 	{
@@ -133,7 +137,6 @@
 		
 	}
 
-<<<<<<< HEAD
 	Rmax& Rmax::operator=(const double &b)
 	{
 
@@ -146,6 +149,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 	bool operator ==(const Rmax & a, const Rmax & other)
+<<<<<<< HEAD
 =======
 	bool operator ==(const Rmax & a, const Rmax & b)
 >>>>>>> parent of d0e40bc... Ищо классы
@@ -155,6 +159,8 @@
 =======
 	bool operator ==(const Rmax & a, const Rmax & b)
 >>>>>>> parent of 16d5ebb... Little change
+=======
+>>>>>>> parent of c169983... This reverts commit d0e40bc907fe2a238bebe1c3525612ee3d75942c.
 	{
 		if (!(a.value == b.value))     return false;
 		return true;
