@@ -13,21 +13,25 @@
 		value = param.value;
 	}
 
+	Rmax Rmaxmin::zero()
+	{
+		Rmaxmin temp(-std::numeric_limits<double>::infinity());
+		return temp;
+	}
+
+	Rmax Rmaxmin::unit()
+	{
+		Rmaxmin temp(0);
+		return temp;
+	}
+
 	std::string Rmax::toString()
 	{
 		std::stringstream ostr;
-		if (value == std::numeric_limits<double>::infinity())
-		{
-			ostr << "oo";
-		}
-		else if (value == -std::numeric_limits<double>::infinity())
-		{
+		if (value == -std::numeric_limits<double>::infinity())
 			ostr << "-oo";
-		}
 		else
-		{
 			ostr << value;
-		}
 		return ostr.str();
 	}
 
@@ -39,46 +43,35 @@
 
 	std::ostream & operator <<(std::ostream & s, const Rmax &n)
 	{
-		if (n.value == -std::numeric_limits<double>::infinity())
-		{
-			s << "-oo";
-		}
-		else if (n.value == std::numeric_limits<double>::infinity())
-		{
-			s << "oo";
-		}
-		else
-		{
-			s << n.value;
-		}
+		s << n.toString();
 		return s;
 	}
 
-	Rmax Rmax::operator+(const Rmax& b)
+	Rmax Rmax::operator+(const Rmax& other)
 	{
 		Rmax temp;
-		value>b.value?temp.value=value:temp.value=b.value;
+		value > other.value ? temp.value = value : temp.value = other.value;
 		return temp;
 	}
 
-	Rmax Rmax::operator*(const Rmax& b)
+	Rmax Rmax::operator*(const Rmax& other)
 	{
 		Rmax temp;
-		temp.value = value + b.value;
+		temp.value = value + other.value;
 		return temp;
 	}
 
-	Rmax Rmax::operator/(const Rmax& b)
+	Rmax Rmax::operator/(const Rmax& other)
 	{
 		Rmax temp;
-		temp.value = value - b.value;
+		temp.value = value - other.value;
 		return temp;
 	}
 
-	Rmax Rmax::operator^(const Rmax& b)
+	Rmax Rmax::operator^(const Rmax& other)
 	{
 		Rmax temp;
-		temp.value = value * b.value;
+		temp.value = value * other.value;
 		return temp;
 	}
 	
@@ -86,7 +79,7 @@
 	{
 		
 		if (*this==b) return *this;
-		this -> value = b.value;
+		this -> value = other.value;
 		return * this;
 		
 	}
@@ -94,14 +87,14 @@
 	Rmax& Rmax::operator=(const double &b)
 	{
 
-		if (*this == b) return *this;
-		this->value = b;
+		if (*this == other) return *this;
+		this->value = other;
 		return *this;
 
 	}
 
-	bool operator ==(const Rmax & a, const Rmax & b)
+	bool operator ==(const Rmax & a, const Rmax & other)
 	{
-		if (!(a.value == b.value))     return false;
+		if (!(a.value == other.value))     return false;
 		return true;
 	}

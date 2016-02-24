@@ -1,6 +1,6 @@
 #ifndef RMIN_HPP 
 #define RMIN_HPP
-	#include <limits>
+    #include <limits>
 	#include <iostream>
 	#include <string>
 	#include <stdio.h>
@@ -8,7 +8,7 @@
 
 	class Rmin
 	{
-	public:
+	private:
 		double value;
 
 	public:
@@ -16,15 +16,15 @@
 		Rmin(double param);
 		Rmin(Rmin &param);
 
-		Rmin operator+(const Rmin& b);
-		Rmin operator*(const Rmin& b);
-		Rmin operator/(const Rmin& b);
-		Rmin operator^(const Rmin& b);
-		Rmin& operator=(const Rmin& b);
-		Rmin& operator=(const double& b);
+        Rmin operator+(const Rmin& other);
+        Rmin operator*(const Rmin& other);
+        Rmin operator/(const Rmin& other);
+        Rmin operator^(const Rmin& other);
+        Rmin& operator=(const Rmin& other);
+        Rmin& operator=(const double& other);
 		std::string toString();
-		friend std::istream& operator>>(std::istream& s, Rmin &n);
-		friend std::ostream& operator<<(std::ostream& s, const Rmin &);
+        friend std::istream& operator>>(std::istream& stream, Rmin &other);
+        friend std::ostream& operator<<(std::ostream& stream, const Rmin &other);
 		friend bool operator ==(const Rmin & a, const Rmin & b);
 
 	};

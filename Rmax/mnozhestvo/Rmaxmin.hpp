@@ -8,7 +8,7 @@
 
 	class Rmaxmin
 	{
-	public:
+	private:
 		double value;
 
 	public:
@@ -16,14 +16,14 @@
 		Rmaxmin(double param);
 		Rmaxmin(Rmaxmin &param);
 
-		Rmaxmin operator+(const Rmaxmin& b);
-		Rmaxmin operator*(const Rmaxmin& b);
-		Rmaxmin operator^(const Rmaxmin& b);
-		Rmaxmin& operator=(const Rmaxmin& b);
-		Rmaxmin& operator=(const double& b);
+		Rmaxmin operator+(const Rmaxmin& other);
+		Rmaxmin operator*(const Rmaxmin& other);
+		Rmaxmin operator^(const Rmaxmin& other);
+		Rmaxmin& operator=(const Rmaxmin& other);
+		Rmaxmin& operator=(const double& other);
 		std::string toString();
 		friend std::istream& operator>>(std::istream& s, Rmaxmin &n);
-		friend std::ostream& operator<<(std::ostream& s, const Rmaxmin &);
+		friend std::ostream& operator<<(std::ostream& s, const Rmaxmin &b);
 		friend bool operator ==(const Rmaxmin & a, const Rmaxmin & b);
 
 	};

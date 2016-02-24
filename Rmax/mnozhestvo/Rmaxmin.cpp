@@ -13,25 +13,31 @@
 		value = param.value;
 	}
 
+	Rmaxmin Rmaxmin::zero()
+	{
+		Rmaxmin temp(-std::numeric_limits<double>::infinity());
+		return temp;
+	}
+
+	Rmaxmin Rmaxmin::unit()
+	{
+		Rmaxmin temp(std::numeric_limits<double>::infinity());
+		return temp;
+	}
+
 	std::string Rmaxmin::toString()
 	{
 		std::stringstream ostr;
 		if (value == std::numeric_limits<double>::infinity())
-		{
 			ostr << "oo";
-		}
 		else if (value == -std::numeric_limits<double>::infinity())
-		{
 			ostr << "-oo";
-		}
 		else
-		{
 			ostr << value;
-		}
 		return ostr.str();
 	}
 
-	std::istream & operator >>(std::istream & s, Rmaxmin &n)
+	std::istream & operator >> (std::istream & s, Rmaxmin &n)
 	{
 			s >> n.value;
 			return s;
@@ -39,36 +45,25 @@
 
 	std::ostream & operator <<(std::ostream & s, const Rmaxmin &n)
 	{
-		if (n.value == -std::numeric_limits<double>::infinity())
-		{
-			s << "-oo";
-		}
-		else if (n.value == std::numeric_limits<double>::infinity())
-		{
-			s << "oo";
-		}
-		else
-		{
-			s << n.value;
-		}
+		s << n.toString();
 		return s;
 	}
 
-	Rmaxmin Rmaxmin::operator+(const Rmaxmin& b)
+	Rmaxmin Rmaxmin::operator+(const Rmaxmin& other)
 	{
 		Rmaxmin temp;
 		value>b.value?temp.value=value:temp.value=b.value;
 		return temp;
 	}
 
-	Rmaxmin Rmaxmin::operator*(const Rmaxmin& b)
+	Rmaxmin Rmaxmin::operator*(const Rmaxmin& other)
 	{
 		Rmaxmin temp;
-		value<b.value ? temp.value = value : temp.value = b.value;
+		value<b.value ? temp.value = value : temp.value = other.value;
 		return temp;
 	}
 
-	Rmaxmin Rmaxmin::operator^(const Rmaxmin& b)
+	Rmaxmin Rmaxmin::operator^(const Rmaxmin& other)
 	{
 		Rmaxmin temp(*this);
 		return temp;
@@ -78,7 +73,7 @@
 	{
 		
 		if (*this==b) return *this;
-		this -> value = b.value;
+		this -> value = other.value;
 		return * this;
 		
 	}
@@ -86,14 +81,14 @@
 	Rmaxmin& Rmaxmin::operator=(const double &b)
 	{
 
-		if (*this == b) return *this;
-		this->value = b;
+		if (*this == other) return *this;
+		this->value = other;
 		return *this;
 
 	}
 
-	bool operator ==(const Rmaxmin & a, const Rmaxmin & b)
+	bool operator ==(const Rmaxmin & a, const Rmaxmin & other)
 	{
-		if (!(a.value == b.value))     return false;
+		if (!(a.value == other.value))     return false;
 		return true;
 	}
