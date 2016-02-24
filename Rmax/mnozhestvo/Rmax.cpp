@@ -29,6 +29,10 @@
 	{
 		std::stringstream ostr;
 		if (value == -std::numeric_limits<double>::infinity())
+<<<<<<< HEAD
+=======
+		{
+>>>>>>> parent of d0e40bc... Ищо классы
 			ostr << "-oo";
 		else
 			ostr << value;
@@ -43,7 +47,18 @@
 
 	std::ostream & operator <<(std::ostream & s, const Rmax &n)
 	{
+<<<<<<< HEAD
 		s << n.toString();
+=======
+		if (n.value == -std::numeric_limits<double>::infinity())
+		{
+			s << "-oo";
+		}
+		else
+		{
+			s << n.value;
+		}
+>>>>>>> parent of d0e40bc... Ищо классы
 		return s;
 	}
 
@@ -60,6 +75,7 @@
 		temp.value = value + other.value;
 		return temp;
 	}
+<<<<<<< HEAD
 
 	Rmax Rmax::operator/(const Rmax& other)
 	{
@@ -74,6 +90,8 @@
 		temp.value = value * other.value;
 		return temp;
 	}
+=======
+>>>>>>> parent of d0e40bc... Ищо классы
 	
 	Rmax& Rmax::operator=(const Rmax &b)
 	{
@@ -84,6 +102,7 @@
 		
 	}
 
+<<<<<<< HEAD
 	Rmax& Rmax::operator=(const double &b)
 	{
 
@@ -94,6 +113,9 @@
 	}
 
 	bool operator ==(const Rmax & a, const Rmax & other)
+=======
+	bool operator ==(const Rmax & a, const Rmax & b)
+>>>>>>> parent of d0e40bc... Ищо классы
 	{
 		if (!(a.value == other.value))     return false;
 		return true;

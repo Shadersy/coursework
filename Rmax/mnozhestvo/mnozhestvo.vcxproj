@@ -80,13 +80,9 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Rmax.cpp" />
-    <ClCompile Include="Rmaxmin.cpp" />
-    <ClCompile Include="Rmin.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Rmax.hpp" />
-    <ClInclude Include="Rmaxmin.hpp" />
-    <ClInclude Include="Rmin.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
