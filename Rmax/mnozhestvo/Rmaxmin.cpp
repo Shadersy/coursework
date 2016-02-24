@@ -54,6 +54,18 @@
 		return s;
 	}
 
+	Rmaxmin Rmaxmin::zero()
+	{
+		Rmaxmin temp(-std::numeric_limits<double>::infinity());
+		return temp;
+	}
+
+	Rmaxmin Rmaxmin::unit()
+	{
+		Rmaxmin temp(std::numeric_limits<double>::infinity());
+		return temp;
+	}
+
 	Rmaxmin Rmaxmin::operator+(const Rmaxmin& b)
 	{
 		Rmaxmin temp;

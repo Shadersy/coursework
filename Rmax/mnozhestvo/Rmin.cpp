@@ -54,6 +54,18 @@
 		return s;
 	}
 
+	Rmin Rmin::zero()
+	{
+		Rmin temp(std::numeric_limits<double>::infinity());
+		return temp;
+	}
+
+	Rmin Rmin::unit()
+	{
+		Rmin temp(0);
+		return temp;
+	}
+
 	Rmin Rmin::operator+(const Rmin& b)
 	{
 		Rmin temp;

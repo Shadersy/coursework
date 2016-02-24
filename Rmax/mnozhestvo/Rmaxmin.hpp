@@ -16,6 +16,9 @@
 		Rmaxmin(double param);
 		Rmaxmin(Rmaxmin &param);
 
+		Rmaxmin zero();
+		Rmaxmin unit();
+
 		Rmaxmin operator+(const Rmaxmin& b);
 		Rmaxmin operator*(const Rmaxmin& b);
 		Rmaxmin operator^(const Rmaxmin& b);

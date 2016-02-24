@@ -16,6 +16,9 @@
 		Rmin(double param);
 		Rmin(Rmin &param);
 
+		Rmin zero();
+		Rmin unit();
+
 		Rmin operator+(const Rmin& b);
 		Rmin operator*(const Rmin& b);
 		Rmin operator/(const Rmin& b);
