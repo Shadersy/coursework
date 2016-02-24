@@ -13,25 +13,21 @@
 		value = param.value;
 	}
 
-	Rmin Rmaxmin::zero()
-	{
-		Rmaxmin temp(std::numeric_limits<double>::infinity());
-		return temp;
-	}
-
-	Rmin Rmaxmin::unit()
-	{
-		Rmaxmin temp(0);
-		return temp;
-	}
-
 	std::string Rmin::toString()
 	{
 		std::stringstream ostr;
 		if (value == std::numeric_limits<double>::infinity())
-			ostr << "+oo";
+		{
+			ostr << "oo";
+		}
+		else if (value == -std::numeric_limits<double>::infinity())
+		{
+			ostr << "-oo";
+		}
 		else
+		{
 			ostr << value;
+		}
 		return ostr.str();
 	}
 
@@ -43,51 +39,54 @@
 
 	std::ostream & operator <<(std::ostream & s, const Rmin &n)
 	{
-		s << n.toString();
+		if (n.value == -std::numeric_limits<double>::infinity())
+		{
+			s << "-oo";
+		}
+		else if (n.value == std::numeric_limits<double>::infinity())
+		{
+			s << "oo";
+		}
+		else
+		{
+			s << n.value;
+		}
 		return s;
 	}
 
-	Rmin Rmin::operator+(const Rmin& other)
+	Rmin Rmin::operator+(const Rmin& b)
 	{
 		Rmin temp;
-		value < other.value ? temp.value = value : temp.value = other.value;
+		value<b.value?temp.value=value:temp.value=b.value;
 		return temp;
 	}
 
-	Rmin Rmin::operator*(const Rmin& other)
+	Rmin Rmin::operator*(const Rmin& b)
 	{
 		Rmin temp;
-		temp.value = value + other.value;
+		temp.value = value + b.value;
 		return temp;
 	}
 
-	Rmin Rmin::operator/(const Rmin& other)
+	Rmin Rmin::operator/(const Rmin& b)
 	{
 		Rmin temp;
-		temp.value = value - other.value;
+		temp.value = value - b.value;
 		return temp;
 	}
 
-	Rmin Rmin::operator^(const Rmin& other)
+	Rmin Rmin::operator^(const Rmin& b)
 	{
 		Rmin temp;
-		temp.value = value * other.value;
-		return temp;
-	}
-
-	Rmin Rmin::operator^(double exp)
-	{
-		Rmin temp;
-		temp.value = value * exp;
+		temp.value = value * b.value;
 		return temp;
 	}
 	
-	
-	Rmin& Rmin::operator=(const Rmin &other)
+	Rmin& Rmin::operator=(const Rmin &b)
 	{
 		
 		if (*this==b) return *this;
-		this -> value = other.value;
+		this -> value = b.value;
 		return * this;
 		
 	}
