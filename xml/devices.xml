@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<devices>
-      
-</devices>
+<Devices>
+	<keyboard>10</keyboard>
+	<mouse>100</mouse>
+	<modem>7000</modem>
+	<scanner>1000000</scanner>
+	<camera>35000000</camera>
+	<blue-ray>18000000</blue-ray>
+	<wifi>37500000</wifi>
+	<usb2>60000000</usb2>
+	<sata3>600000000</sata3>
+	<usb3>625000000</usb3>
+</Devices>

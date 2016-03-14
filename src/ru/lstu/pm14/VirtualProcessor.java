@@ -8,34 +8,49 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.w3c.dom.Text;
 import org.xml.sax.SAXException;
 
 public class VirtualProcessor 
 {
 	private int devices[];
 	
-	public VirtualProcessor() throws ParserConfigurationException, SAXException, IOException
+	public VirtualProcessor()
 	{
-		/*
-		 * [0] => keyboard
-		 * [2] => 100 	// mouse
-		 * [3] => 7K	// modem 56K
-		 * [4] => 1M 	// scanner
-		 * [5] => 3.5M		// cam 
-		 * [6] => 18M		//Blue-ray
-		 * [7] => 37.5M 	//wifi
-		 * [8] => 60M	//usb 2.0
-		 * [9] => 600M //sata 3
-		 * [10] => 625M //usb 3.0
-		 */
-		DocumentBuilderFactory f = DocumentBuilderFactory.newInstance();
-		f.setValidating(false);
-		DocumentBuilder builder = f.newDocumentBuilder();
-		Document doc = builder.parse(new File("./xml/devices.xml"));
-		System.out.println("work");
-		NamedNodeMap attributes = node.getAttributes();
-		Node nameAttrib = attributes.getNamedItem("name");
-		String name = nameAttrib.getNodeValue();
-
+		
+		 
+		try 
+		{
+			loadDevices("./xml/devices.xml");
+		} catch (ParserConfigurationException e) {
+			e.printStackTrace();
+		} catch (SAXException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void loadDevices(String path) throws ParserConfigurationException, SAXException, IOException
+	{
+		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder builder = factory.newDocumentBuilder();
+		File file = new File(path);
+		Document doc = builder.parse(file);
+		Element root = doc.getDocumentElement();
+		NodeList children = root.getChildNodes();
+		for(int i = 0; i < children.getLength(); i++)
+		{
+			Node child = children.item(i);
+			if(child instanceof Element){
+				Element childElement = (Element)child;
+				Text textNode = (Text)childElement.getFirstChild();
+				System.out.println(textNode.getData().trim());
+			
+			}
+		}
 	}
 }
