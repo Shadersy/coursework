@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<processes>
+	<process>
+		<name>Opera</name>
+		<inSleep>50</inSleep>
+		<inWork>500</inWork>
+		<popularityProbab>70</popularityProbab>
+	</process>
+</processes>
