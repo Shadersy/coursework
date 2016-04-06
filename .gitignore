@@ -1,3 +1,7 @@
 /bin/*
 .project
 .classpath
+/src/
+/src/src/
+!/src/src/src.cpp
+!/src/src/classes.h
