@@ -18,12 +18,16 @@ private:
 	double beta;
 public:
 	int F();
+	Process();
+	Process(double beta);
+	~Process();
 };
 
 class Algorithm
 {
 public:
 	int Next(VirtualMachine source);
+	Algorithm();
 };
 
 class Timer
@@ -36,6 +40,7 @@ public:
 	void Stop();
 	void NextSecond();
 	void CreateAndCloseProcess();
+	Timer();
 };
 
 class VirtualMachine
@@ -56,6 +61,7 @@ public:
 
 	VirtualMachine();
 	VirtualMachine(long Clock, long StopTime);
+	~VirtualMachine();
 };
 
 
