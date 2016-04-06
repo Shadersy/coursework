@@ -1,6 +1,8 @@
+#include <iostream>
+#include "classes.h"
 
-int _tmain(int argc, _TCHAR* argv[])
+void main()
 {
-	return 0;
+	VirtualMachine computer;
 }
 
