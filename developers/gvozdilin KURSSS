@@ -1,0 +1,45 @@
+#include <timer.hpp>
+#include <timer.cpp>
+#include <Algorithm.cpp>
+#include <Algorithm.hpp>
+
+
+int main(){
+    
+
+int timer; 
+int TimerSec; //сколько секунд должны работать процессы
+int Global; //задержка
+int TimerTime; //Время запуска процессов
+int TimerEnd; //Время окончания процессов
+Double Frequency; //Частота
+int AllProcess; //Количество процессов для запуска
+
+
+cout <<"Введите кол-во секунд для работы процессов";
+cin >> TimerSec;
+TimerOn(); //включить таймер
+TimerTime() //фиксировать время запуска
+
+if(TimeCount++)//Если наступает следующая единица времени
+{
+    cout >> TimerTime >> endl;
+    PullProcess();//Запустить процессы
+
+    while(Frequency>0)
+    {
+    planing();//Вызов планировщика
+    Algorithm()//Установить какой процесс запустить следующим
+                                            }
+   else 
+   {cout <<TimerEnd/Global<<endl;
+   }
+
+
+
+}
+return 0;
+
+
+
+
